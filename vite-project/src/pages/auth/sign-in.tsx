@@ -4,7 +4,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import logo from "../../assets/svg/logo.svg";
 import FormItem from "antd/es/form/FormItem";
 import Cookies from "js-cookie";
-import { useSignInAdmin } from "../../service/mutation/useSignInAdmin";
+import { useSignInAdmin } from "../../service/mutation/useSignInStore";
 
 export const SignIn = () => {
   type FieldType = {
@@ -19,15 +19,15 @@ export const SignIn = () => {
     const { login, password } = values;
     if (login && password) {
       mutate(
-        { username: login, password: password },
+        { login: login, password: password },
         {
           onSuccess: (values) => {
-            console.log(values);
-
             Cookies.set("accessToken", values.data.accessToken, { expires: 7 });
             navigate("/app");
           },
-          onError: () => {},
+          onError: (values) => {
+            console.log("Login yoki parol noto'g'ri kiritilgan.");
+          },
           onSettled: () => {},
         }
       );
