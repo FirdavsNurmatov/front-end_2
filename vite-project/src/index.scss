@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+.form__logo {
+  width: 40px;
+  height: 40px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  height: 100vh;
+  align-items: center;
+}
+
+.form__block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 15%;
+}
+
+.sign_in__title {
+  font-weight: 700;
+  font-size: 24px;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.sing_in__des {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.sign_in__text_block {
+  width: 313px;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.all__summ__block {
+  text-align: center;
+}
+
+.all__summ {
+  background-color: #30af49;
+  display: flex;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.all__summ__title {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 140%;
+  text-align: center;
+}
+
+.all__summ__hide_icon {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
