@@ -58,26 +58,158 @@ button {
   gap: 40px;
 }
 
-.all__summ__block {
-  text-align: center;
-}
-
 .all__summ {
+  position: relative;
+  color: #fff;
   background-color: #30af49;
   display: flex;
+  justify-content: center;
+  gap: 100px;
   padding: 20px;
   border-radius: 20px;
 }
 
 .all__summ__title {
-  font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 140%;
   text-align: center;
 }
 
+.all__summ__text {
+  font-weight: 600;
+  font-size: 28px;
+}
+
 .all__summ__hide_icon {
+  position: absolute;
+  right: 50px;
+  top: 38%;
   background-color: transparent;
   outline: none;
   border: none;
+}
+
+.about__debtors {
+  display: flex;
+  gap: 40px;
+}
+
+.store__hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.store__fullname {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+}
+
+.store__img_name {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.about__debtors__summ,
+.about__debtors__count {
+  border: #ececec 1px solid;
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.about__debtors__count__text,
+.about__debtors__summ__text {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 140%;
+}
+
+.about__debtors__summ__quantity {
+  color: #f94d4d;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+}
+
+.about__debtors__count__quantity {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #30af49;
+}
+
+.wallet {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.wallet__title {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.wallet__title_block {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.your__wallet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.wallet__btn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.in_your__wallet {
+  font-size: 16px;
+}
+
+.in_your__wallet__summ {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.home__icon {
+  width: 48px;
+  height: 48px;
+}
+
+.eye_hide__icon {
+  width: 26px;
+  height: 26px;
+}
+
+.store__payment {
+  display: flex;
+  justify-content: space-between;
+}
+
+.store__payment__title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.store__payment__true {
+  font-weight: 500;
+  font-size: 18px;
+  color: #30af49;
+}
+
+.store__calendar {
+  outline: none;
+  border: none;
+  background-color: transparent;
 }
