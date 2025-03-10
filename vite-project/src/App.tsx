@@ -17,6 +17,10 @@ function App() {
           />
         ))}
       </Route>
+      <Route
+        path={"/*"}
+        element={<h1 className="error_page">No Page Like This!</h1>}
+      />
     </Routes>
   );
 }

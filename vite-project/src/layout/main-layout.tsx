@@ -45,9 +45,7 @@ export const MainLayout = () => {
             {
               key: "3",
               icon: <UploadOutlined />,
-              label: (
-                <Link to={"/app/product"}>Nasiya yaratish & qo'shish</Link>
-              ),
+              label: <Link to={"/app/debtor-create"}>Mijoz yaratish</Link>,
             },
             {
               key: "4",

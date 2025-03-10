@@ -1,14 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { request } from "../../../../../config/request";
-import Cookies from "js-cookie";
+import { getToken } from "../../../../../config/token";
 
 export const useGetSingleStore = () => {
-  const data = Cookies.get("accessToken");
-  if (!data) {
-    throw new Error("token not found");
-  }
-  const token = `Bearer ${data}`;
-
+  const token = getToken();
   return useQuery({
     queryKey: ["store_data", token],
     queryFn: () =>

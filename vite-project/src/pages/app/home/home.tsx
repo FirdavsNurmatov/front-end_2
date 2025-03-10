@@ -5,20 +5,26 @@ import addBtnIcon from "../../../assets/svg/home/add-btn-icon.svg";
 import { useNavigate } from "react-router-dom";
 import calendarIcon from "../../../assets/svg/home/calendar-icon.svg";
 import { useState } from "react";
+import { UserOutlined } from "@ant-design/icons";
+import { Avatar, Space } from "antd";
 
 export const Home = () => {
   const navigate = useNavigate();
   const isPaid = true;
   let storeFullName = "";
+  let storeImage = "";
   let storeAllDebtors = "";
   let updatedStoreAllDebts = "";
   let updatedStoreWallet = "";
 
   const { data: storeData, isLoading } = useGetSingleStore();
   if (!isLoading) {
+    localStorage.setItem("store_id", storeData?.justStoreData?.data?.id);
+
     const { justStoreData, additionalStoreData } = storeData;
 
     storeFullName = justStoreData?.data?.fullname;
+    storeImage = justStoreData?.data?.image;
     storeAllDebtors = additionalStoreData?.data?.debtors_count;
     const storeWallet = justStoreData?.data?.wallet;
 
@@ -75,7 +81,11 @@ export const Home = () => {
       <div className="home">
         <div className="store__hero">
           <div className="store__img_name">
-            <img src="" alt="profile_image" />
+            <Space direction="vertical" size={16}>
+              <Space wrap size={16}>
+                <Avatar size={80} src={true ? <UserOutlined /> : storeImage} />
+              </Space>
+            </Space>
             <p className="store__fullname">
               {isLoading ? "Loading..." : storeFullName}
             </p>

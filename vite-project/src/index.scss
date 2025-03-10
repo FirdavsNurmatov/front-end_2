@@ -213,3 +213,13 @@ button {
   border: none;
   background-color: transparent;
 }
+
+.product-label .ant-form-item-label > label {
+  font-size: 18px;
+}
+
+.error_page {
+  text-align: center;
+  color: red;
+  font-size: 40px;
+}
