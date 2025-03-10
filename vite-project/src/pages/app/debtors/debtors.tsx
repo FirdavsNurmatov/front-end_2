@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Table } from "antd";
+import { Avatar, Image, Table } from "antd";
 import type { TableColumnsType } from "antd";
 import { useForm } from "react-hook-form";
 import { useGetDebtors } from "./service/query/useGetDebtors";
@@ -13,7 +13,11 @@ interface DataType {
 }
 
 const columns: TableColumnsType<DataType> = [
-  { title: "Sur'at", dataIndex: "image" },
+  {
+    title: "Sur'at",
+    dataIndex: "image",
+    render: (img) => <Image width={100} src={img} />,
+  },
   {
     title: "To'liq ism",
     dataIndex: "full_name",
@@ -31,6 +35,19 @@ const columns: TableColumnsType<DataType> = [
 export const Debtors = () => {
   const { data: debtorsData, isPending } = useGetDebtors();
   const data: DataType[] = debtorsData?.data;
+  console.log(data);
+
+  // if (isPending) {
+  //   const shothem = data.map((item: DataType) => {
+  //     if (item) {
+  //       console.log(item);
+
+  //       // <Avatar size={80} src={item} />;
+  //     }
+  //   });
+
+  //   console.log(shothem);
+  // }
 
   const { register, watch } = useForm();
 
