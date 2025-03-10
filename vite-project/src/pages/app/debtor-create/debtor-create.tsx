@@ -23,6 +23,7 @@ export const DebtorCreate = () => {
       },
       onError: (res) => {
         console.log(res);
+        window.alert("Xatolik yuz berdi, qayta urinib ko'ring");
       },
     });
   };
@@ -41,7 +42,7 @@ export const DebtorCreate = () => {
         style={{ maxWidth: 600 }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
-        // autoComplete="off"
+        autoComplete="off"
       >
         <Form.Item
           label="To'liq ismi"
