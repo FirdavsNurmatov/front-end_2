@@ -25,6 +25,8 @@ export const Home = () => {
 
     storeFullName = justStoreData?.data?.fullname;
     storeImage = justStoreData?.data?.image;
+    console.log(storeImage);
+
     storeAllDebtors = additionalStoreData?.data?.debtors_count;
     const storeWallet = justStoreData?.data?.wallet;
 
@@ -83,7 +85,10 @@ export const Home = () => {
           <div className="store__img_name">
             <Space direction="vertical" size={16}>
               <Space wrap size={16}>
-                <Avatar size={80} src={true ? <UserOutlined /> : storeImage} />
+                <Avatar
+                  size={80}
+                  src={isLoading ? <UserOutlined /> : storeImage}
+                />
               </Space>
             </Space>
             <p className="store__fullname">
