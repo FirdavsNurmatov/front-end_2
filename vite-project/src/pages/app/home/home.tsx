@@ -71,7 +71,7 @@ export const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const goToStorePayment = () => {
-    navigate("/");
+    navigate("/app/home");
   };
 
   const goToStoreCalendar = () => {
