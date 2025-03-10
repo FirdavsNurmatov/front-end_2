@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Avatar, Image, Table } from "antd";
+import { Image, Table } from "antd";
 import type { TableColumnsType } from "antd";
 import { useForm } from "react-hook-form";
 import { useGetDebtors } from "./service/query/useGetDebtors";

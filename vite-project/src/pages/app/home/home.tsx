@@ -25,7 +25,6 @@ export const Home = () => {
 
     storeFullName = justStoreData?.data?.fullname;
     storeImage = justStoreData?.data?.image;
-    console.log(storeImage);
 
     storeAllDebtors = additionalStoreData?.data?.debtors_count;
     const storeWallet = justStoreData?.data?.wallet;

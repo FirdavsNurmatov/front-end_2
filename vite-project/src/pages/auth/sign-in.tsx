@@ -23,10 +23,14 @@ export const SignIn = () => {
         {
           onSuccess: (values) => {
             Cookies.set("accessToken", values.data.accessToken, { expires: 7 });
+            Cookies.set("refreshToken", values.data.refreshToken, {
+              expires: 14,
+            });
             navigate("/app");
           },
-          onError: (values) => {
+          onError: () => {
             console.log("Login yoki parol noto'g'ri kiritilgan.");
+            window.alert("Login yoki parol noto'g'ri kiritilgan.");
           },
           onSettled: () => {},
         }
