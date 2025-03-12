@@ -255,3 +255,18 @@ button {
 td {
   font-size: 18px;
 }
+
+.nasiya__create_btn {
+  background: #ececec;
+  font-size: 16px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  border-radius: 40px;
+}
+
+.nasiya__create_btn:hover {
+  background-color: #30af49;
+  color: white;
+  padding: 5px;
+}

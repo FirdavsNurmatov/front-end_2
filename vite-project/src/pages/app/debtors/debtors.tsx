@@ -4,53 +4,64 @@ import type { TableColumnsType } from "antd";
 import { useForm } from "react-hook-form";
 import { useGetDebtors } from "./service/query/useGetDebtors";
 import useDebounce from "../../../config/debounce";
+import { useNavigate } from "react-router-dom";
 
 interface DataType {
+  id?: string;
   key: React.Key;
   name: string;
   age: number;
   address: string;
 }
 
-const columns: TableColumnsType<DataType> = [
-  {
-    title: "Sur'at",
-    dataIndex: "image",
-    render: (img) => <Image width={100} src={img} />,
-  },
-  {
-    title: "To'liq ism",
-    dataIndex: "full_name",
-  },
-  {
-    title: "Telefon raqam",
-    dataIndex: "phone_number",
-  },
-  {
-    title: "Yashash maznil",
-    dataIndex: "address",
-  },
-];
-
 export const Debtors = () => {
+  const navigate = useNavigate();
+
+  const createNasiya = (data: any) => {
+    navigate(`/app/create-debt/${data.id}`);
+  };
+
+  const columns: TableColumnsType<DataType> = [
+    {
+      title: "Sur'at",
+      dataIndex: "image",
+      render: (img) => <Image width={100} src={img} />,
+    },
+    {
+      title: "To'liq ism",
+      dataIndex: "full_name",
+    },
+    {
+      title: "Telefon raqam",
+      dataIndex: "phone_number",
+    },
+    {
+      title: "Yashash maznil",
+      dataIndex: "address",
+    },
+    {
+      title: "Amal",
+      dataIndex: "action_btn",
+      render: (_, record) => (
+        <button
+          // key={id}
+          // id={`${id}`}
+          onClick={() => createNasiya(record)}
+          className="nasiya__create_btn"
+        >
+          +nasiya yaratish
+        </button>
+      ),
+    },
+  ];
+
   const { data: debtorsData, isPending } = useGetDebtors();
-  const data: DataType[] = debtorsData?.data;
-  console.log(data);
-
-  // if (isPending) {
-  //   const shothem = data.map((item: DataType) => {
-  //     if (item) {
-  //       console.log(item);
-
-  //       // <Avatar size={80} src={item} />;
-  //     }
-  //   });
-
-  //   console.log(shothem);
-  // }
+  const data: DataType[] = debtorsData?.data.map((debtor: DataType) => ({
+    ...debtor,
+    key: debtor?.id,
+  }));
 
   const { register, watch } = useForm();
-
   const searchTerm = watch("qidiruv");
   const debouncedSearch = useDebounce(searchTerm, 500);
 
