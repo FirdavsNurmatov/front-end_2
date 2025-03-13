@@ -21,6 +21,10 @@ export const Debtors = () => {
     navigate(`/app/create-debt/${data.id}`);
   };
 
+  const showNasiya = (data: any) => {
+    navigate(`/app/debts/${data.id}`);
+  };
+
   const columns: TableColumnsType<DataType> = [
     {
       title: "Sur'at",
@@ -50,6 +54,15 @@ export const Debtors = () => {
           className="nasiya__create_btn"
         >
           +nasiya yaratish
+        </button>
+      ),
+    },
+    {
+      title: "Nasiyalar",
+      dataIndex: "nasiya",
+      render: (_, record) => (
+        <button onClick={() => showNasiya(record)} className="nasiya__show_btn">
+          nasiyani ko'rish
         </button>
       ),
     },

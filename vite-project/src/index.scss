@@ -256,7 +256,9 @@ td {
   font-size: 18px;
 }
 
-.nasiya__create_btn {
+.nasiya__create_btn,
+.nasiya__show_btn,
+.nasiya__delete_btn {
   background: #ececec;
   font-size: 16px;
   padding: 5px;
@@ -267,6 +269,12 @@ td {
 
 .nasiya__create_btn:hover {
   background-color: #30af49;
+  color: white;
+  padding: 5px;
+}
+
+.nasiya__delete_btn:hover {
+  background-color: red;
   color: white;
   padding: 5px;
 }
