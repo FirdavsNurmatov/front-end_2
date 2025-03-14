@@ -5,6 +5,7 @@ import { Report } from "../pages/app/report/report";
 import { StoreCalendar } from "../pages/app/calendar/calendar";
 import { CreateDebt } from "../pages/app/debt-create/debt-create";
 import { Debts } from "../pages/app/debts/debts";
+import { Profile } from "../pages/app/profile/profile";
 
 export const appRoutes = [
   { comp: Home, path: "home" },
@@ -14,4 +15,5 @@ export const appRoutes = [
   { comp: DebtorCreate, path: "debtor-create" },
   { comp: Report, path: "report" },
   { comp: CreateDebt, path: "create-debt/:id" },
+  { comp: Profile, path: "profile" },
 ];

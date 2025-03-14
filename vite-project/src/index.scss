@@ -278,3 +278,10 @@ td {
   color: white;
   padding: 5px;
 }
+
+.profile__data {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  text-align: center;
+}

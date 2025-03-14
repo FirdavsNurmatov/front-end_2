@@ -6,6 +6,7 @@ import {
   UserOutlined,
   TeamOutlined,
   BarChartOutlined,
+  SolutionOutlined,
 } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
 import { Link, Navigate, Outlet } from "react-router-dom";
@@ -51,6 +52,11 @@ export const MainLayout = () => {
               key: "4",
               icon: <BarChartOutlined />,
               label: <Link to={"/app/report"}>Hisobot</Link>,
+            },
+            {
+              key: "5",
+              icon: <SolutionOutlined />,
+              label: <Link to={"/app/profile"}>Profile</Link>,
             },
           ]}
         />
