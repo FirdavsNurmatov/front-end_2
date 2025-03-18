@@ -38,10 +38,16 @@ export default function Home() {
               <img src={newIcon.src} alt="icon" />
               <p className="font-bold text-[32px] leading-[75%]">Yangi</p>
             </div>
-            <div className="grid grid-cols-4 gap-[20px]">
+            <div className="grid grid-cols-4 gap-[20px] pb-2">
               <Card text={"Qo'y bo'yin (muzlatilgan)"} price={7040} />
               <Card text={"Qo'y bo'yin (muzlatilgan)"} price={8040} />
               <Card text={"Qo'y bo'yin (muzlatilgan)"} price={9040} />
+              <Card text={"Qo'y bo'yin (muzlatilgan)"} price={10040} />
+              <Card text={"Qo'y bo'yin (muzlatilgan)"} price={10040} />
+              <Card text={"Qo'y bo'yin (muzlatilgan)"} price={10040} />
+              <Card text={"Qo'y bo'yin (muzlatilgan)"} price={10040} />
+              <Card text={"Qo'y bo'yin (muzlatilgan)"} price={10040} />
+              <Card text={"Qo'y bo'yin (muzlatilgan)"} price={10040} />
               <Card text={"Qo'y bo'yin (muzlatilgan)"} price={10040} />
             </div>
           </div>
