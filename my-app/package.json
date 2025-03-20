@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "next": "15.2.3",
+    "next-auth": "^4.24.11",
     "p-limit": "^6.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
