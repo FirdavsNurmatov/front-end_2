@@ -7,16 +7,16 @@ import {
 import { RegisterAuthDto } from './dto/register-auth.dto';
 import { LoginAuthDto } from './dto/login-auth.dto';
 import { Repository } from 'typeorm';
-import { User } from 'src/users/entities/user.entity';
+import { Users } from 'src/users/entities/users.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { decodePassword, encodePassword } from 'src/config/hashingPassword';
+import { hashPassword, comparePassword } from 'src/config/hashingPassword';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
   constructor(
-    @InjectRepository(User) private readonly authRepository: Repository<User>,
+    @InjectRepository(Users) private readonly authRepository: Repository<Users>,
     private configService: ConfigService,
     private jwtService: JwtService,
   ) {}
@@ -33,7 +33,7 @@ export class AuthService {
       throw new BadRequestException('Email or username already exists!');
     }
 
-    const hashedPassword = await decodePassword(
+    const hashedPassword = await hashPassword(
       registerAuthDto.password,
       +this.configService.get<number>('BCRYPT_KEY'),
     );
@@ -55,7 +55,7 @@ export class AuthService {
     if (!oldUserData) {
       throw new NotFoundException('User not found!');
     } else {
-      const res = await encodePassword(
+      const res = await comparePassword(
         oldUserData.password,
         loginAuthDto.password,
       );

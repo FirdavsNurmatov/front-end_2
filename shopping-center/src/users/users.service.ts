@@ -1,13 +1,22 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  HttpStatus,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from './entities/user.entity';
+import { Users } from './entities/users.entity';
 import { Repository } from 'typeorm';
+import { hashPassword, comparePassword } from 'src/config/hashingPassword';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(User) private readonly usersRepository: Repository<User>,
+    @InjectRepository(Users)
+    private readonly usersRepository: Repository<Users>,
+    private configService: ConfigService,
   ) {}
 
   async findAll() {
@@ -15,7 +24,7 @@ export class UsersService {
 
     if (!allUsers) throw new NotFoundException('No data in database!');
 
-    return allUsers;
+    return { status: HttpStatus.OK, message: 'Fetched', data: { ...allUsers } };
   }
 
   async findOne(id: number) {
@@ -26,8 +35,53 @@ export class UsersService {
     return oneUserData;
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(id: number, updateUserDto: UpdateUserDto) {
+    const oldUserData = await this.usersRepository.findOneBy({ id: id });
+    console.log(oldUserData);
+
+    if (!oldUserData) throw new NotFoundException('User not found!');
+
+    const comparedPassword = await comparePassword(
+      oldUserData.password,
+      updateUserDto.current_password,
+    );
+
+    if (!comparedPassword) {
+      throw new BadRequestException('Password not matched!');
+    }
+
+    if (updateUserDto.new_password) {
+      const newHashedPassword = await hashPassword(
+        updateUserDto.new_password,
+        +this.configService.get<number>('BCRYPT_KEY'),
+      );
+
+      const newUserData = this.usersRepository.create({
+        username: updateUserDto.username || oldUserData.username,
+        email: updateUserDto.email || oldUserData.email,
+        password: newHashedPassword,
+      });
+      this.usersRepository.save(newUserData);
+
+      return {
+        status: HttpStatus.OK,
+        message: 'Updated',
+        data: { ...newUserData },
+      };
+    } else {
+      const newUserData = this.usersRepository.create({
+        username: updateUserDto.username || oldUserData.username,
+        email: updateUserDto.email || oldUserData.email,
+        password: oldUserData.password,
+      });
+      this.usersRepository.save(newUserData);
+
+      return {
+        status: HttpStatus.OK,
+        message: 'Updated',
+        data: { ...newUserData },
+      };
+    }
   }
 
   async remove(id: number) {

@@ -4,7 +4,7 @@ import { ProductModule } from './product/product.module';
 import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
-import { User } from './users/entities/user.entity';
+import { Users } from './users/entities/users.entity';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { ConfigModule } from '@nestjs/config';
 
@@ -22,7 +22,7 @@ import { ConfigModule } from '@nestjs/config';
       port: 5432,
       password: 'postgres',
       username: 'postgres',
-      entities: [User],
+      entities: [Users],
       database: 'shopping_center',
       synchronize: true,
     }),

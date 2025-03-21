@@ -2,14 +2,13 @@ import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
-import { User } from 'src/users/entities/user.entity';
+import { Users } from 'src/users/entities/users.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { config } from 'dotenv';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forFeature([Users]),
     ConfigModule,
     JwtModule.registerAsync({
       imports: [ConfigModule],

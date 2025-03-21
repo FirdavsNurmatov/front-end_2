@@ -1,6 +1,6 @@
 import * as bcrypt from 'bcrypt';
 
-export const decodePassword = async (
+export const hashPassword = async (
   password: string,
   salt: number,
 ): Promise<string> => {
@@ -8,7 +8,7 @@ export const decodePassword = async (
   return hashedPassword;
 };
 
-export const encodePassword = async (
+export const comparePassword = async (
   oldPassword: string,
   newPassword: string,
 ): Promise<boolean> => {
