@@ -3,22 +3,23 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Users {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({ name: 'id' })
   id: number;
 
-  @Column({ type: 'varchar', unique: true })
+  @Column({ name: 'username', type: 'varchar', unique: true })
   username: string;
 
-  @Column({ type: 'varchar', unique: true })
+  @Column({ name: 'email', type: 'varchar', unique: true })
   email: string;
 
-  @Column({ type: 'varchar' })
+  @Column({ name: 'password', type: 'varchar' })
   password: string;
 
   @Column({
     type: 'enum',
     enum: Role,
     default: Role.User,
+    name: 'role',
   })
   role: Role;
 }

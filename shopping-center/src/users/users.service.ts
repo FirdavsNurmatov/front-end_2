@@ -24,7 +24,7 @@ export class UsersService {
 
     if (!allUsers) throw new NotFoundException('No data in database!');
 
-    return { status: HttpStatus.OK, message: 'Fetched', data: { ...allUsers } };
+    return { status: HttpStatus.OK, message: 'Fetched', data: allUsers };
   }
 
   async findOne(id: number) {
@@ -37,7 +37,6 @@ export class UsersService {
 
   async update(id: number, updateUserDto: UpdateUserDto) {
     const oldUserData = await this.usersRepository.findOneBy({ id: id });
-    console.log(oldUserData);
 
     if (!oldUserData) throw new NotFoundException('User not found!');
 

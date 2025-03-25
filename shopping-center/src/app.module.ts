@@ -7,6 +7,8 @@ import { UsersModule } from './users/users.module';
 import { Users } from './users/entities/users.entity';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { ConfigModule } from '@nestjs/config';
+import { Category } from './category/entities/category.entity';
+import { Product } from './product/entities/product.entity';
 
 @Module({
   imports: [
@@ -22,7 +24,7 @@ import { ConfigModule } from '@nestjs/config';
       port: 5432,
       password: 'postgres',
       username: 'postgres',
-      entities: [Users],
+      entities: [Users, Category, Product],
       database: 'shopping_center',
       synchronize: true,
     }),
