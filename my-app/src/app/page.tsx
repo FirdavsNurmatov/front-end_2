@@ -37,7 +37,7 @@ export default function Home() {
           </SwiperSlide>
         </Swiper>
       </section>
-      <div className="flex mt-[26px] gap-[10px]">
+      <div className="flex mt-[26px] gap-[40px]">
         <div>
           <p>Categories</p>
           <div className="pl-5">
@@ -48,7 +48,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div></div>
+        <div className="border-2 border-black"></div>
       </div>
     </div>
   );
