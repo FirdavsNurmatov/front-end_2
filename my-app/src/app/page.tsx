@@ -4,6 +4,7 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import "swiper/css";
 import { Autoplay, Pagination } from "swiper/modules";
 import Link from "next/link";
+import PostWrapper from "@/components/postswrapper";
 
 const categories = [
   "House Plants",
@@ -48,7 +49,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="border-2 border-black"></div>
+        <div className="border-2 border-black">
+          <PostWrapper />
+        </div>
       </div>
     </div>
   );

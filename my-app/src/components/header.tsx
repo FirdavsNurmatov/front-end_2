@@ -4,19 +4,22 @@ import Link from "next/link";
 import korzinkaIconSvg from "/public/header/korzinka-icon.svg";
 import loginBtnIconSvg from "/public/header/login-btn-icon.svg";
 import searchIconSvg from "/public/header/search-icon.svg";
+import Image from "next/image";
 
 export const Header = () => {
   return (
     <div className="container h-[53px] pt-[25px] flex justify-between ">
       <div>
-        <img src={logoSvg.src} alt="logo" />
+        <Link href="/">
+          <Image src={logoSvg} alt="logo" />
+        </Link>
       </div>
       <li className="flex gap-[50px]">
         <ul>
           <Link href="/">Home</Link>
         </ul>
         <ul>
-          <Link href="/">Shop</Link>
+          <Link href="/shop">Shop</Link>
         </ul>
         <ul>
           <Link href="/">Plant Care</Link>
