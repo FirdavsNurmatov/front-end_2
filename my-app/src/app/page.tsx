@@ -1,10 +1,6 @@
-"use client";
-import { SliderCard } from "@/components/slider-card";
-import { SwiperSlide, Swiper } from "swiper/react";
-import "swiper/css";
-import { Autoplay, Pagination } from "swiper/modules";
 import Link from "next/link";
 import PostWrapper from "@/components/postswrapper";
+import { SliderCard } from "@/components/slider-card";
 
 const categories = [
   "House Plants",
@@ -22,21 +18,7 @@ export default function Home() {
   return (
     <div className="container">
       <section className="slider">
-        <Swiper
-          modules={[Pagination, Autoplay]}
-          loop={true}
-          pagination={{ clickable: true }}
-        >
-          <SwiperSlide>
-            <SliderCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SliderCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SliderCard />
-          </SwiperSlide>
-        </Swiper>
+        <SliderCard />
       </section>
       <div className="flex mt-[26px] gap-[40px]">
         <div className="w-[310px]">
