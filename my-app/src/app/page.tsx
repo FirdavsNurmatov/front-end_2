@@ -43,7 +43,11 @@ export default function Home() {
           <p>Categories</p>
           <div className="pl-5">
             {categories.map((category, index) => (
-              <Link href={"/"} key={index} className="block">
+              <Link
+                href={"/"}
+                key={index}
+                className="bg-amber-400 mb-[3px] block"
+              >
                 {category}
               </Link>
             ))}

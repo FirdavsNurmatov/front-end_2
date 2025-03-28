@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 
-export interface Posts {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
+// export interface Posts {
+//   userId: number;
+//   id: number;
+//   title: string;
+//   body: string;
+// }
 
-export const getPostFetch = async (filter: object): Promise<Posts[]> => {
-  const response = await fetch("https://dummyjson.com/products");
+export const getPostFetch = async (filter: object) => {
+  const response = await fetch("https://dummyjson.com/products?limit=10");
   return response.json();
 };
 
