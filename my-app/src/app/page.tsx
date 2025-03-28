@@ -39,21 +39,17 @@ export default function Home() {
         </Swiper>
       </section>
       <div className="flex mt-[26px] gap-[40px]">
-        <div>
+        <div className="w-[310px]">
           <p>Categories</p>
           <div className="pl-5">
             {categories.map((category, index) => (
-              <Link
-                href={"/"}
-                key={index}
-                className="bg-amber-400 mb-[3px] block"
-              >
-                {category}
+              <Link href={"/"} key={index} className=" block">
+                <p>{category}</p>
               </Link>
             ))}
           </div>
         </div>
-        <div className="border-2 border-black">
+        <div>
           <PostWrapper />
         </div>
       </div>
